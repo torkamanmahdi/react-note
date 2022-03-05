@@ -5,7 +5,7 @@ class Note extends Component {
 	render() { 
 		const { id, text } = this.props.note
 		return (
-			<li key={id}>{id} : {text}</li>
+			<li>{id}: {text} <button onClick={this.props.deleteNote}>X</button></li>
 		);
 	}
 }

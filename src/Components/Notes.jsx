@@ -6,7 +6,7 @@ class Notes extends Component {
 	render() { 
 		return (
 			<ul>
-				{this.props.notes.map(note => <Note key={note.id} note={note} />)}
+				{this.props.notes.map(note => <Note key={note.id} note={note} deleteNote={() => this.props.onDelete(note.id)} />)}
 			</ul>
 		);
 	}

@@ -14,8 +14,16 @@ class App extends Component {
 	handleShowNotes = () => {
 		this.setState({showNotes: !this.state.showNotes})
 	}
+	handleDelete = (id) => {
+		const notes = this.state.notes.filter(note => note.id !== id)
+		this.setState({notes})
+	}
+	handleNoteChange = (event) => {}
 	render() {
-		const showingNotes = this.state.showNotes ? <Notes notes={this.state.notes} /> : null
+		let showingNotes = null
+		if(this.state.showNotes) {
+			showingNotes = <Notes notes={this.state.notes} onDelete={this.handleDelete} />
+		}
 		return (
 				<>
 					<h1>Note App</h1>
