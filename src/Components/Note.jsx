@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Note extends Component {
-	state = {  }
-	render() { 
-		const { id, text } = this.props.note
-		return (
-			<li>{id}: {text} <button onClick={this.props.deleteNote}>X</button></li>
-		);
-	}
+const Note = ({ note, deleteNote, changed }) => {
+	return(
+		<li>
+			{note.id}: {note.text} 
+			<button onClick={deleteNote}>X</button>
+			<input type="text" onChange={changed} />
+		</li>
+	)
 }
+
 export default Note;
